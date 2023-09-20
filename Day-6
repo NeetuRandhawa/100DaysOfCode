@@ -1,0 +1,10 @@
+//Rotate Bits
+class Solution {
+public:
+	vector<int> rotate(int n, int d) {
+		d %= 16;
+		return {((n << d) | (n >> (16 - d))) & 65535,
+			    ((n >> d) | (n << (16 - d))) & 65535};
+	
+   }
+};
