@@ -1,0 +1,25 @@
+//Stickler thief
+class Solution
+{
+    private:
+    int f(int ind, int arr[], int n, vector<int>&dp)
+    {
+        if(ind>=n)
+        {
+            return 0;
+        }
+        if(dp[ind]!=-1)return dp[ind];
+        int np = 0 + f(ind+1, arr, n, dp);
+        int p = arr[ind] + f(ind+2, arr, n, dp);
+        return dp[ind] =  max(p, np);
+    }
+    public:
+    //Function to find the maximum money the thief can get.
+    int FindMaxSum(int arr[], int n)
+    {
+        // Your code here
+        vector<int>dp(n, -1);
+        return f(0, arr, n, dp);
+    }
+    
+};
