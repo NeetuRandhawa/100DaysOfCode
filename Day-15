@@ -1,0 +1,18 @@
+//Reverse Words in a String
+class Solution {
+public:
+   
+    string reverseWords(string s) {
+        int n=s.size();
+       
+        int i=0 ; // To keep track of start of word
+        
+        for(int j=0;j<=s.size();j++){ 
+            if(s[j]==' ' || j == s.size()){ //when word ends reverse from i to j 
+                reverse(s.begin()+i,s.begin()+j); 
+                i = j+1; //move to start of next word
+            }
+        }
+        return s; 
+    }
+};
